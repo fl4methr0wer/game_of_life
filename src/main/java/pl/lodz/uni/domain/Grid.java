@@ -1,11 +1,10 @@
 package pl.lodz.uni.domain;
 
-import pl.lodz.uni.domain.Cell;
 import java.util.Iterator;
 import java.util.NoSuchElementException;
 
 public class Grid implements Iterable<Cell> {
-    private Cell[][] grid;
+    private final Cell[][] grid;
     private int rows;
     private int cols;
     public Grid(int rows, int cols) {
