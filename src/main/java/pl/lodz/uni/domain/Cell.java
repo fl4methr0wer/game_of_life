@@ -1,4 +1,4 @@
-package pl.lodz.uni;
+package pl.lodz.uni.domain;
 
 public class Cell {
     private int row;

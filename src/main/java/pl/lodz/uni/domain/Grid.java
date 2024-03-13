@@ -1,5 +1,6 @@
-package pl.lodz.uni;
+package pl.lodz.uni.domain;
 
+import pl.lodz.uni.domain.Cell;
 import java.util.Iterator;
 import java.util.NoSuchElementException;
 
@@ -20,9 +21,22 @@ public class Grid implements Iterable<Cell> {
             }
         }
     }
+    public void prepareNextState() {
+        for (Cell cell : this) {
+            cell.prepareNextState();
+        }
+    }
+    public void setNextState() {
+        for (Cell cell : this) {
+            cell.setAlive(cell.getNextState());
+        }
+    }
 
     public Cell getCellByRowCol(int row, int col) {
         return this.grid[row][col];
+    }
+    public void setAlive(int row, int col) {
+        getCellByRowCol(row, col).setAlive(true);
     }
     public boolean cellIsAliveAndExistsByRowCol(int row, int col) {
         if (row < 0 || row >= rows || col < 0 || col >= cols) {
@@ -67,5 +81,11 @@ public class Grid implements Iterable<Cell> {
             }
             return cell;
         }
+    }
+    public int getRows() {
+        return this.rows;
+    }
+    public int getCols() {
+        return this.cols;
     }
 }

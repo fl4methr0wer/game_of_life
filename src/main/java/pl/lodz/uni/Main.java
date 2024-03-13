@@ -1,29 +1,25 @@
 package pl.lodz.uni;
 
+import pl.lodz.uni.gui.GameFrame;
+import pl.lodz.uni.domain.Cell;
+import pl.lodz.uni.domain.Grid;
+
+import javax.swing.*;
 
 public class Main {
 
-    private static final int ROWS = 4;
-    private static final int COLS = 4;
+    private static final int ROWS = 20;
+    private static final int COLS = 20;
 
     public static void main(String[] args) {
         Grid grid = new Grid(ROWS, COLS);
-        grid.getCellByRowCol(1, 0).setAlive(true);
-        grid.getCellByRowCol(1, 1).setAlive(true);
-        grid.getCellByRowCol(1, 2).setAlive(true);
+        grid.setAlive(0,1);
+        grid.setAlive(1,2);
+        grid.setAlive(2,2);
+        grid.setAlive(2,1);
+        grid.setAlive(2,0);
 
-
-        for (int i=0; i<10; i++) {
-            System.out.println(grid);
-            for (Cell cell : grid) {
-                cell.prepareNextState();
-            }
-            for (Cell cell : grid) {
-                cell.setAlive(cell.getNextState());
-            }
-
-        }
-
+        SwingUtilities.invokeLater(() -> new GameFrame(grid));
     }
 
 }
