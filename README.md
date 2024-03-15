@@ -4,6 +4,8 @@ This project implements Conway's Game of Life in Java using a Maven project stru
 The Game of Life is a cellular automaton devised by John Horton Conway in 1970. 
 It is a zero-player game, meaning its evolution is determined by its initial state, requiring no further input.
 
+![Diagram](game-of-life.png)
+
 ## Usage
 1. Clone the repository or download the source code zip file.
 2. Navigate to the project directory.
