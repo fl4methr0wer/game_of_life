@@ -1,15 +1,14 @@
 package pl.lodz.uni;
 
 import pl.lodz.uni.gui.GameFrame;
-import pl.lodz.uni.domain.Cell;
 import pl.lodz.uni.domain.Grid;
 
 import javax.swing.*;
 
 public class Main {
 
-    private static final int ROWS = 20;
-    private static final int COLS = 20;
+    private static final int ROWS = 35;
+    private static final int COLS = 60;
 
     public static void main(String[] args) {
         Grid grid = new Grid(ROWS, COLS);

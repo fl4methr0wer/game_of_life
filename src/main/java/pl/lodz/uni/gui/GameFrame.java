@@ -29,7 +29,6 @@ public class GameFrame extends JFrame {
         Timer timer = new Timer(DELAY, new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                // Update the grid state
                 grid.prepareNextState();
                 grid.setNextState();
                 gridPanel.repaint();
