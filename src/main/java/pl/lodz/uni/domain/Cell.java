@@ -34,17 +34,25 @@ public class Cell {
     }
     private int countAliveNeighbours() {
         int counter = 0;
-        counter = grid.cellIsAliveAndExistsByRowCol(row - 1, col - 1) ? counter + 1 : counter;
-        counter = grid.cellIsAliveAndExistsByRowCol(row - 1, col) ? counter + 1 : counter;
-        counter = grid.cellIsAliveAndExistsByRowCol(row - 1, col + 1) ? counter + 1 : counter;
+        counter = cellIsAliveAndExistsByRowCol(row - 1, col - 1) ? counter + 1 : counter;
+        counter = cellIsAliveAndExistsByRowCol(row - 1, col) ? counter + 1 : counter;
+        counter = cellIsAliveAndExistsByRowCol(row - 1, col + 1) ? counter + 1 : counter;
 
-        counter = grid.cellIsAliveAndExistsByRowCol(row, col -1) ? counter + 1 : counter;
-        counter = grid.cellIsAliveAndExistsByRowCol(row, col + 1) ? counter + 1 : counter;
+        counter = cellIsAliveAndExistsByRowCol(row, col -1) ? counter + 1 : counter;
+        counter = cellIsAliveAndExistsByRowCol(row, col + 1) ? counter + 1 : counter;
 
-        counter = grid.cellIsAliveAndExistsByRowCol(row + 1, col -1) ? counter + 1 : counter;
-        counter = grid.cellIsAliveAndExistsByRowCol(row + 1, col) ? counter + 1 : counter;
-        counter = grid.cellIsAliveAndExistsByRowCol(row + 1, col + 1) ? counter + 1 : counter;
+        counter = cellIsAliveAndExistsByRowCol(row + 1, col -1) ? counter + 1 : counter;
+        counter = cellIsAliveAndExistsByRowCol(row + 1, col) ? counter + 1 : counter;
+        counter = cellIsAliveAndExistsByRowCol(row + 1, col + 1) ? counter + 1 : counter;
         return counter;
+    }
+    private boolean cellIsAliveAndExistsByRowCol(int row, int col) {
+        int rows = grid.getRows();
+        int cols = grid.getCols();
+        if (row < 0 || row >= rows || col < 0 || col >= cols) {
+            return false;
+        }
+        return grid.getCellByRowCol(row,col).isAlive();
     }
 
     public int getRow() {

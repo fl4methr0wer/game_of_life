@@ -37,12 +37,6 @@ public class Grid implements Iterable<Cell> {
     public void setAlive(int row, int col) {
         getCellByRowCol(row, col).setAlive(true);
     }
-    public boolean cellIsAliveAndExistsByRowCol(int row, int col) {
-        if (row < 0 || row >= rows || col < 0 || col >= cols) {
-            return false;
-        }
-        return getCellByRowCol(row, col).isAlive();
-    }
     @Override
     public String toString() {
         StringBuilder result = new StringBuilder();
